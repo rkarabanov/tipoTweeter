@@ -1,10 +1,48 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-offset-1 col-lg-3 col-md-4 col-xs-7 col-sm-7">
 
-</body>
-</html>
+            <h1 class="page-header" style="border-bottom: none;">
+                <span class="glyphicon glyphicon-sunglasses"></span> {{profileOfUser.loginUser}}
+            </h1>
+        </div>
+
+    </div>
+    <hr>
+    <div class="row">
+
+        <h2 ng-if="!isEmpty(profileOfUser.loginUser)" style="text-align: center;" > No one message =(</h2>
+        <!-- First Blog Post -->
+        <!--<div ng-repeat="user in users">-->
+        <div class="col-sm-offset-2 col-md-8" ng-repeat="tweet in messages" ng-if="tweet.loginUser===profileOfUser.loginUser">
+            <!--<input type="text" ng-model="tweet.title" ng-change="tweeters[0].$save(tweet)" />-->
+            <div class="row ">
+                <div class="col-sm-2 col-xs-2">
+                    <img class="img-responsive" ng-src={{getURL(tweet.loginUser)}}>
+                    <!--alt="{{getURL(tweet.loginUser)}}"-->
+
+                </div>
+                <div class="col-sm-9 col-xs-9">
+                    <a ng-href="#/profile/{{tweet.loginUser}}" ng-click="inProfile(tweet.loginUser)"><span><b><span class="glyphicon glyphicon-user"></span>
+                        {{tweet.loginUser}}</b></span></a><span>&nbsp<span class="glyphicon glyphicon-time"></span> {{tweet.dataTTMessege|dateAndTime}}&nbsp</span>
+                   <span style="padding-left: 15px; color: red"class="heart"
+                         ng-click="getLike(userInSystem.loginUser,tweet.whoLiked,tweet.id); getWhatLiked(tweet.id, tweet.whoLiked)"><span>{{tweet.whoLiked.length}}</span>
+                    <span ng-class="{'glyphicon-heart-empty': !isLike(userInSystem.loginUser,tweet.whoLiked),'glyphicon-heart':isLike(userInSystem.loginUser,tweet.whoLiked)}"
+                          class="glyphicon"></span></span>
+                    <span class="glyphicon glyphicon-remove remove" ng-if="userInSystem.loginUser===tweet.loginUser" ng-click='deleteMessage(tweet.id)'></span>
+                    <h4>{{tweet.ttMessage}}</h4>
+
+                </div>
+            </div>
+            <hr class="col-sm-12 col-xs-12">
+        </div>
+
+    </div>
+    <!--</div>-->
+
+
+    <!-- /.row -->
+
+    <!--<hr>-->
+</div>
+</div>

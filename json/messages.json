@@ -1,26 +1,32 @@
 [
-  {
-    "loginUser": "loh-pidr",
-    "avatarUser": "images/lol.jpg",
-    "dataTTMessege": "Wed Jun 08 2016 12:01:41 GMT+0300 (RTZ 2 (зима))",
-    "ttMessage": "Этот - это т"
+  {"loginUser": "loh-pidr",
+    "dataTTMessege": "Wed Jun 12 2016 12:01:41 GMT+0300 (RTZ 2 (зима))",
+    "ttMessage": "Ты пришёл забрать своё? - Но мы чужого не брали.",
+    "like": 1
   },
-  {
-    "loginUser": "loh-pidr",
-    "avatarUser": "images/lol.jpg",
+  {"loginUser": "myAlterEgo",
     "dataTTMessege": "Wed Jun 08 2016 12:01:41 GMT+0300 (RTZ 2 (зима))",
-    "ttMessage": "Крем приятнее на ладожке"
+    "ttMessage": "Этот - это т",
+    "like": 5
   },
-  {
-    "loginUser": "myAlterEgo",
-    "avatarUser": "j.jpg",
-    "dataTTMessege": "Wed Jun 08 2016 12:01:41 GMT+0300 (RTZ 2 (зима))",
-    "ttMessage": "Пархай как бабочка, жаль что ты пидр...(("
+  {"loginUser": "loh-pidr",
+    "dataTTMessege": "Wed Jun 08 2016 11:51:41 GMT+0300 (RTZ 2 (зима))",
+    "ttMessage": "Крем приятнее на ладожке",
+    "like": 0
   },
-  {
-    "loginUser": "loh-pidr",
-    "avatarUser": "images/lol.jpg",
-    "dataTTMessege": "Wed Jun 08 2016 12:01:41 GMT+0300 (RTZ 2 (зима))",
-    "ttMessage": "6+9 = I love it"
+  {"loginUser": "justKid",
+    "dataTTMessege": "Wed Jun 08 2016 10:01:41 GMT+0300 (RTZ 2 (зима))",
+    "ttMessage": "6+9 = I love it",
+    "like": 2
+  },
+  {"loginUser": "loh-pidr",
+    "dataTTMessege": "Wed Jun 07 2016 12:01:41 GMT+0300 (RTZ 2 (зима))",
+    "ttMessage": "Пархай как бабочка, жаль как пчела",
+    "like": 3
+  },
+  {"loginUser": "myAlterEgo",
+    "dataTTMessege": "Wed Jun 05 2016 12:00:41 GMT+0300 (RTZ 2 (зима))",
+    "ttMessage": "Твой рот - твои проблемы",
+    "like": 1
   }
 ]

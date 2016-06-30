@@ -1,10 +1,24 @@
 {
-  "compilerOptions": {
-    "module": "commonjs",
-    "target": "es5",
-    "sourceMap": true
-  },
-  "exclude": [
-    "node_modules"
-  ]
+  "users" : [ {
+"avatarUser" : "http://vseprosto.com/cms_content/uploads/vseprosto_com/avatarka.jpg",
+"loginUser" : "loh-pidr",
+"password" : "11111",
+"whoSubscribe" : false,
+"whomSubscribe" : false,
+"whatLikedId":false
+}, {
+"avatarUser" : "http://cs622327.vk.me/v622327297/df64/GThbpxEHrS4.jpg",
+"loginUser" : "myAlterEgo",
+"password" : "11111",
+"whoSubscribe" : false,
+"whomSubscribe" : false,
+"whatLikedId":false
+}, {
+"avatarUser" : "http://www.sunhome.ru/UsersGallery/042008/12224243.JPG",
+"loginUser" : "justKid",
+"password" : "11111",
+"whoSubscribe" : false,
+"whomSubscribe" : false,
+"whatLikedId":false
+} ]
 }

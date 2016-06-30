@@ -1,10 +1,67 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<div class="container">
+    <div class="row main">
+        <div class="panel-heading">
+            <div class="panel-title text-center">
+                <h1 class="title">Registration</h1>
+                <hr/>
+            </div>
+        </div>
+        <div class="col-sm-offset-3 col-lg-offset-3 col-xs-offset-1  col-sm-6 col-lg-6 col-xs-10 main-login main-center">
+            <form class="form-horizontal" method="post" action="#">
 
-</body>
-</html>
+
+                <div class="form-group">
+                    <label for="username" class="cols-sm-2 control-label">*Username&nbsp</label>
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                            <input type="text" class="form-control" name="username" id="username"
+                                   placeholder="Enter your Username"/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="passwordreg" class="cols-sm-2 control-label">*Password&nbsp</label>
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                            <input type="password" class="form-control" name="password" id="passwordreg"
+                                   placeholder="Enter your Password"/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="confirm" class="cols-sm-2 control-label">*Confirm Password&nbsp</label>
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-lock" aria-hidden="true"></i></span>
+                            <input type="password" class="form-control" name="confirm" id="confirm"
+                                   placeholder="Confirm your Password"/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="url" class="cols-sm-2 control-label">URL image&nbsp</label>
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-picture"></i></span>
+                            <input type="url" class="form-control" name="url" id="url" placeholder="Enter your URL"/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group ">
+                    <button type="button" class="btn btn-primary btn-lg btn-block login-button" ng-click='isRegister()'>
+                        Register
+                    </button>
+                </div>
+                <div>
+                    * - Obligatory field.
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
