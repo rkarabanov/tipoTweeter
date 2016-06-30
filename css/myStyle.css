@@ -4,3 +4,41 @@
     padding-top: 50px;
     margin-top: 50px;
 }
+.noner{
+    /*visibility: hidden;*/
+    display: none;
+}
+.block{
+    display: block;
+}
+.round {
+    width: 30px;
+    height: 30px;
+    border-radius: 6px; /* Радиус скругления */
+    border: 2px solid #75a5fe; /* Параметры рамки */
+    /*box-shadow: 0 0 7px #cff9fe; !* Параметры тени *!*/
+}
+.button-login{
+    background-color: #31b0d5;
+    -webkit-transition-duration: 0.7s;
+    transition-duration: 0.7s;
+}
+.like{
+    bottom: 0;
+}
+.remove{
+    position: absolute;
+    right: 0 ;
+    opacity:0.2;
+}
+.remove:hover{
+    opacity:0.8;
+}
+.heart{
+    position: absolute;
+    right: 20px ;
+    opacity:0.4;
+}
+.heart:hover{
+    opacity:1;
+}

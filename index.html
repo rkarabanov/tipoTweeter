@@ -11,49 +11,56 @@
 
     <title>Blog Home - Start Bootstrap Template</title>
 
+
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
     <link href="css/blog-home.css" rel="stylesheet">
-    <link href="css/myStyle.css">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
     <![endif]-->
-
+    <link href="css/myStyle.css" rel="stylesheet">
 </head>
 
-<body>
+<body ng-controller="UserCtrl">
 
 <!-- Navigation -->
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" id="navbar">
     <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse"
-                    data-target="#bs-example-navbar-collapse-1">
+        <div class="navbar-header" id="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#navbar" >
                 <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
+
             </button>
-            <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-sunglasses"></span> TipoTweeter</a>
+            <a class="navbar-brand" href="#/"><span class="glyphicon glyphicon-sunglasses"></span> TipoTweeter</a>
         </div>
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
-                <li>
-                    <a href="#">About</a>
-                </li>
-                <li>
-                    <a href="#">Services</a>
-                </li>
-                <li>
-                    <a href="#">Contact</a>
-                </li>
+        <div class=" navbar-collapse collapse " aria-expanded="false" id="bs-example-navbar-collapse-1">
+
+            <ul class="nav navbar-nav navbar-right" >
+                <form     class="form-inline navbar-form " ng-class="{block:!userInSystem, noner:userInSystem}">
+                    <div    class="form-group form-group-sm" role="form">
+                        <label  class="sr-only" for="login">Login</label>
+                        <input  type="text"    class="form-control " id="login"  placeholder="Login">
+                    </div>
+                    <div    class="form-group form-group-sm" role="form">
+                        <label  class="sr-only" for="password">Password</label>
+                        <input  type="password" class="form-control"    id="password"   placeholder="Password">
+                    </div>
+                    <button  type="submit"   class="btn btn-info  btn-sm btn-login" ng-click="getUser()" >Sign in</button>
+                   <a ng-href="#/registration"><button  type="submit"   class="btn btn-success  btn-sm btn-login" >Register</button></a>
+                </form>
+                <form   class="form-inline navbar-form" ng-if="userInSystem">
+                    <a ng-href="#/profile/{{userInSystem.loginUser}}" ng-click="inProfile(userInSystem.loginUser)"> <img class="round" ng-src={{getURL(userInSystem.loginUser)}}>
+                  <button  class="btn btn-info btn-sm"  > {{userInSystem.loginUser}} &nbsp<span class="glyphicon glyphicon-log-in"></span></button></a>
+                    <button type="submit" class="btn btn-danger btn-sm"   ng-click="exitUser()"><span class="glyphicon glyphicon-log-out"></span></button>
+                </form>
             </ul>
         </div>
         <!-- /.navbar-collapse -->
@@ -62,45 +69,13 @@
 </nav>
 
 <!-- Page Content -->
-<div class="container" ng-controller="tweeterCtrl">
-    <div class="row">
-        <div class="col-sm-offset-1 col-md-8">
+<ng-view></ng-view>
 
-            <h1 class="page-header">
-                <span class="glyphicon glyphicon-sunglasses"></span> TipoTweeter
-            </h1>
-        </div>
-    </div>
-    <div class="row">
-
-
-        <!-- First Blog Post -->
-        <div class="col-sm-offset-1 col-md-8" ng-repeat="tweet in tweeters">
-            <div class="row messages_tweeter">
-                <div class="col-sm-2 col-xs-2">
-                    <img class="img-responsive" src="images/lol.jpg" alt="{{tweet.avatarUser}}">
-                </div>
-                <div class="col-sm-10 col-xs-10">
-                    <a href="#"><span><b>
-                        {{tweet.loginUser}}</b></span></a><span>&nbsp<span class="glyphicon glyphicon-time"></span> {{tweet.dataTTMessege}}</span>
-
-                    <h4>{{tweet.ttMessage}}</h4>
-                </div>
-
-
-            </div>
-            <hr>
-        </div>
-
-
-        <!-- /.row -->
-
-        <hr>
-
+<div class="container" >
         <!-- Footer -->
         <footer>
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-12">
                     <p>Copyright &copy; R-key Website 2016</p>
                 </div>
                 <!-- /.col-lg-12 -->
@@ -108,7 +83,7 @@
             <!-- /.row -->
         </footer>
 
-    </div>
+
 </div>
 <!-- /.container -->
 
@@ -118,14 +93,24 @@
 <!-- Bootstrap Core JavaScript -->
 <script src="js/bootstrap.min.js"></script>
 
-<script src="bower_components/angular/angular.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+
+<script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
+<!-- AngularFire -->
+<script src="https://cdn.firebase.com/libs/angularfire/1.2.0/angularfire.min.js"></script>
 <!--Angular.js Route-->
 <!--<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.js"></script>-->
 <script src="bower_components/angular-route/angular-route.js"></script>
 <script src="bower_components/angular-resource/angular-resource.js"></script>
-<script src="js/angularjs/app.js"></script>
-<script src="js/angularjs/services.js"></script>
-<script src="js/angularjs/controllers.js"></script>
+<script src="js/app.js"></script>
+<script src="js/messages/filters.js"></script>
+<script src="js/firebaseJs/services.js"></script>
+<script src="js/messages/services.js"></script>
+<script src="js/users/services.js"></script>
+<script src="js/users/regist-services.js"></script>
+<script src="js/users/controllers.js"></script>
+<script src="js/messages/controllers.js"></script>
+
 </body>
 
 </html>

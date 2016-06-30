@@ -9,13 +9,13 @@ ttApp.config(['$routeProvider',function ($routeProvide) {
             {
                 templateUrl: 'template/feed.html',
                 controller:"MessageCtrl"
-
             }
         )
+        
         .when('/registration',{
             templateUrl: 'template/registration.html'
         })
-        .when('/profile/:profileOfUser', {
+        .when('/profile/:profile', {
             templateUrl: 'template/profile.html',
             controller:"MessageCtrl"
         })
