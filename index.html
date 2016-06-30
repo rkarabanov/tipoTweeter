@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en ru" ng-app="ttApp">
 
 <head>
 
@@ -16,7 +16,7 @@
 
     <!-- Custom CSS -->
     <link href="css/blog-home.css" rel="stylesheet">
-
+    <link href="css/myStyle.css">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -62,7 +62,7 @@
 </nav>
 
 <!-- Page Content -->
-<div class="container">
+<div class="container" ng-controller="tweeterCtrl">
     <div class="row">
         <div class="col-sm-offset-1 col-md-8">
 
@@ -75,23 +75,21 @@
 
 
         <!-- First Blog Post -->
-        <div class="col-sm-offset-1 col-md-8">
-            <div class="row">
-                <div class="col-sm-1">
-                    <img class="img-responsive" src="http://placehold.it/900x300" alt="">
+        <div class="col-sm-offset-1 col-md-8" ng-repeat="tweet in tweeters">
+            <div class="row messages_tweeter">
+                <div class="col-sm-2 col-xs-2">
+                    <img class="img-responsive" src="images/lol.jpg" alt="{{tweet.avatarUser}}">
                 </div>
-                <div class="col-sm-11">
-                    <a href="#"><h2>
-                        {{loginUser}}</h2></a><span><span class="glyphicon glyphicon-time"></span> Posted on August 28, 2013 at 10:00 PM</span>
+                <div class="col-sm-10 col-xs-10">
+                    <a href="#"><span><b>
+                        {{tweet.loginUser}}</b></span></a><span>&nbsp<span class="glyphicon glyphicon-time"></span> {{tweet.dataTTMessege}}</span>
 
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore, veritatis, tempora, necessitatibus
-                        inventore nisi quam quia repellat ut tempore laborum possimus eum dicta id animi corrupti debitis
-                        ipsum
-                        officiis rerum.</p>
+                    <h4>{{tweet.ttMessage}}</h4>
                 </div>
 
-                <hr>
+
             </div>
+            <hr>
         </div>
 
 
@@ -103,7 +101,7 @@
         <footer>
             <div class="row">
                 <div class="col-lg-12">
-                    <p>Copyright &copy; Your Website 2014</p>
+                    <p>Copyright &copy; R-key Website 2016</p>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -120,6 +118,14 @@
 <!-- Bootstrap Core JavaScript -->
 <script src="js/bootstrap.min.js"></script>
 
+<script src="bower_components/angular/angular.js"></script>
+<!--Angular.js Route-->
+<!--<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.js"></script>-->
+<script src="bower_components/angular-route/angular-route.js"></script>
+<script src="bower_components/angular-resource/angular-resource.js"></script>
+<script src="js/angularjs/app.js"></script>
+<script src="js/angularjs/services.js"></script>
+<script src="js/angularjs/controllers.js"></script>
 </body>
 
 </html>
